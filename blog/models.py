@@ -5,6 +5,12 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=255)
 
+    class Meta:
+        verbose_name_plural = 'Categories'
+
+    def __unicode__(self):
+        return self.name
+
 
 class Post(models.Model):
     category = models.ForeignKey(Category)
@@ -16,3 +22,7 @@ class Post(models.Model):
     )
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Draft')
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __unicode__(self):
+        return self.name
+
