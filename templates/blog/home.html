@@ -5,14 +5,23 @@
         <title>Django project</title>
     </head>
     <body>
-        <h1>Hello {{name}}</h1>
-        <ul>
-            {% for category in categories %}
-            <li>
-                {{ category.name }}
-            </li>
-            {% endfor %}
-        </ul>
+        <h1>Blog - {{name}}</h1>
+        <aside>
+            <ul>
+                {% for category in categories %}
+                <li>
+                    {{ category.name }}
+                </li>
+                {% endfor %}
+            </ul>
+            <hr />
+        </aside>
+        <section>
+            <article>
+                <h2>{{ post.name }} ({{ post.category.name }}) </h2>
+                <p>{{ post.content }}</p>
+            </article>
+        </section>
     </body>
 </html>
 
